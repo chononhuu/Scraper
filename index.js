@@ -7,15 +7,12 @@ const path = require('path');
 const app = express();
 
 // Mongoose
-// const { MONGODB_URI } = process.env;
-// if (MONGODB_URI) {
-//   mongoose.connect(MONGODB_URI);
-// } else {
-//   mongoose.connect('mongodb://localhost/newsdb', { useNewUrlParser: true });
-// }
-
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user1:password1@ds151416.mlab.com:51416/heroku_xz8t50jd";
-mongoose.connect(MONGODB_URI);
+const { MONGODB_URI } = process.env;
+if (MONGODB_URI) {
+  mongoose.connect(MONGODB_URI);
+} else {
+  mongoose.connect('mongodb://user1:password1@ds151416.mlab.com:51416/heroku_xz8t50jd', { useNewUrlParser: true });
+}
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
