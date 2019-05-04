@@ -7,12 +7,15 @@ const path = require('path');
 const app = express();
 
 // Mongoose
-const { MONGODB_URI } = process.env;
-if (MONGODB_URI) {
-  mongoose.connect(MONGODB_URI);
-} else {
-  mongoose.connect('mongodb://localhost/newsdb', { useNewUrlParser: true });
-}
+// const { MONGODB_URI } = process.env;
+// if (MONGODB_URI) {
+//   mongoose.connect(MONGODB_URI);
+// } else {
+//   mongoose.connect('mongodb://localhost/newsdb', { useNewUrlParser: true });
+// }
+
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsdb";
+mongoose.connect(MONGODB_URI);
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
