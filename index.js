@@ -14,7 +14,7 @@ const app = express();
 //   mongoose.connect('mongodb://localhost/newsdb', { useNewUrlParser: true });
 // }
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsdb";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user1:password1@ds151416.mlab.com:51416/heroku_xz8t50jd";
 mongoose.connect(MONGODB_URI);
 
 // Middleware
